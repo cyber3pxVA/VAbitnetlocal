@@ -69,7 +69,7 @@ COMPILER_EXTRA_ARGS = {
 }
 
 OS_EXTRA_ARGS = {
-    "Windows":["-T", "ClangCL"],
+    "Windows":[],  # Remove ClangCL requirement, use standard MSVC
 }
 
 ARCH_ALIAS = {
@@ -211,8 +211,16 @@ def compile():
         logging.error(f"Arch {arch} is not supported yet")
         exit(0)
     logging.info("Compiling the code using CMake.")
-    run_command(["cmake", "-B", "build", *COMPILER_EXTRA_ARGS[arch], *OS_EXTRA_ARGS.get(platform.system(), []), "-DCMAKE_C_COMPILER=clang", "-DCMAKE_CXX_COMPILER=clang++"], log_step="generate_build_files")
-    # run_command(["cmake", "--build", "build", "--target", "llama-cli", "--config", "Release"])
+    # Use Clang compiler (required by BitNet)
+    compiler_args = []
+    if platform.system() == "Windows":
+        # On Windows, use Ninja generator with clang++ (not clang-cl) for better C++ standard library support
+        compiler_args = ["-G", "Ninja", "-DCMAKE_C_COMPILER=clang", "-DCMAKE_CXX_COMPILER=clang++", "-DCMAKE_BUILD_TYPE=Release"]
+    else:
+        compiler_args = ["-DCMAKE_C_COMPILER=clang", "-DCMAKE_CXX_COMPILER=clang++"]
+    
+    run_command(["cmake", "-B", "build", *COMPILER_EXTRA_ARGS[arch], *compiler_args], log_step="generate_build_files")
+    # Build the project
     run_command(["cmake", "--build", "build", "--config", "Release"], log_step="compile")
 
 def main():

@@ -16,9 +16,11 @@ option(BITNET_ARM_TL1    "bitnet.cpp: use tl1 on arm platform"    OFF)
 option(BITNET_X86_TL2    "bitnet.cpp: use tl2 on x86 platform"    OFF)
 
 
-set(CMAKE_CXX_STANDARD_REQUIRED true)
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_STANDARD_REQUIRED true)
+# Set C++ standard before including subdirectories - MUST be CACHE to propagate
+set(CMAKE_CXX_STANDARD 20 CACHE STRING "C++ standard" FORCE)
+set(CMAKE_CXX_STANDARD_REQUIRED ON CACHE BOOL "C++ standard required" FORCE)
+set(CMAKE_C_STANDARD 11 CACHE STRING "C standard" FORCE)
+set(CMAKE_C_STANDARD_REQUIRED ON CACHE BOOL "C standard required" FORCE)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 
 # override ggml options
@@ -34,6 +36,12 @@ endif()
 
 if (CMAKE_C_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     add_compile_options(-fpermissive)
+endif()
+
+# On Windows with Clang, add compatibility flags
+if (WIN32 AND CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    add_compile_definitions(_CRT_USE_BUILTIN_OFFSETOF)
+    add_compile_options(-Wno-deprecated-declarations)
 endif()
 
 find_package(Threads REQUIRED)

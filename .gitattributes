@@ -1,0 +1,40 @@
+# Handle line endings
+* text=auto
+*.sh text eol=lf
+*.ps1 text eol=crlf
+
+# Binary files - do not modify
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+*.a binary
+*.lib binary
+*.gguf binary
+
+# Python bytecode
+*.pyc binary
+*.pyo binary
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+*.7z binary
+*.rar binary
+
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg binary
+
+# Models and data
+*.bin binary
+*.safetensors binary
+*.pt binary
+*.pth binary
+*.h5 binary
+*.pb binary
