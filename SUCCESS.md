@@ -1,7 +1,12 @@
 # ✅ VABitNet - Build & Inference SUCCESS!
 
+> ⚠️ **DEVELOPMENT BUILD NOTICE**  
+> This is an experimental Windows build created for development and testing purposes only.  
+> Built on: Windows 11 build 10.0.26200.6901 with LLVM/Clang 21.1.4  
+> **Not officially supported for production use. Use at your own risk.**
+
 **Date:** October 26, 2025  
-**Status:** 🎉 Fully Operational
+**Status:** 🎉 Fully Operational (Development/Testing)
 
 ---
 

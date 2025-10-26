@@ -1,8 +1,12 @@
 # VABitNet - Windows Ready Fork
 
+> ⚠️ **DEVELOPMENT BUILD** - This is an experimental Windows build for development and testing purposes. The pre-built binaries and build process are functional but not officially supported for production use. Use at your own risk.
+
 This is a Windows-friendly fork of [Microsoft BitNet](https://github.com/microsoft/BitNet) with pre-built binaries and streamlined setup for Windows 11.
 
 ## 🚀 Quick Start (No Build Tools Required!)
+
+> **Note:** This build is for development/testing. Binary compatibility and stability may vary across different Windows 11 configurations.
 
 For end users who just want to run inference:
 
@@ -25,7 +29,9 @@ That's it! No Visual Studio, no C++ build tools, no CMake required!
 
 ## 📦 Pre-Built Binaries
 
-This fork includes pre-compiled Windows binaries in `build/bin/Release/`:
+> ⚠️ **Development Binaries** - These executables are built for testing and may not work on all Windows 11 systems. They were compiled on Windows 11 build 10.0.26200.6901 with LLVM/Clang 21.1.4.
+
+This fork includes pre-compiled Windows binaries in `build/bin/`:
 - `llama-cli.exe` - Command-line inference
 - `llama-quantize.exe` - Model quantization tool
 - `llama-server.exe` - HTTP server for inference
