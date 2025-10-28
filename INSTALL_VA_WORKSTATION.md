@@ -8,6 +8,31 @@
 
 ---
 
+## Understanding the Model Files
+
+This repo includes a **pre-converted model** ready to use:
+
+### Two Model Formats:
+
+1. **model.safetensors (2.8 GB)** - Original training format
+   - Used by researchers and GPU training
+   - NOT included in this repo (too big for GitHub)
+   - You don't need this to run inference
+
+2. **ggml-model-tl2.gguf (328 MB)** - Converted for CPU inference
+   - This is what you actually use to run the model
+   - Already optimized for your laptop
+   - **This IS included in the repo**
+   - Ready to use immediately
+
+**Think of it like this:** 
+- `.safetensors` = RAW uncooked ingredients (2.8 GB)
+- `.gguf` = Ready-to-eat meal (328 MB)
+
+You're getting the ready-to-eat version! The GGUF file is compressed and optimized for CPU inference. The original PyTorch weights (safetensors) are used for training or converting, but once converted to GGUF, you don't need them anymore.
+
+---
+
 ## What You Need
 
 - Windows 10/11 VA workstation
@@ -36,18 +61,17 @@ This downloads the llama.cpp engine:
 git submodule update --init --recursive
 ```
 
-### 3. Download the Model
+### 3. The Model is Already Included!
 
-The model is stored in Git LFS (Large File Storage). Pull it down:
+The model file (`ggml-model-tl2.gguf`, 328 MB) is already in the repo via Git LFS. When you cloned the repo, you got it automatically.
+
+Check it's there:
 
 ```bash
-cd models/bitnet_b1_58-large
-git lfs fetch
-git lfs checkout
-cd ../..
+ls -lh models/bitnet_b1_58-large/ggml-model-tl2.gguf
 ```
 
-You should now have a **2.7 GB file** called `model.safetensors` in the `models/bitnet_b1_58-large/` folder.
+You should see a **328 MB file**. This is the converted, optimized model ready to use.
 
 ### 4. Set Up Python Environment
 

@@ -6,11 +6,14 @@ export PATH="/c/Users/VHAWRJDRESCF/OneDrive - Department of Veterans Affairs/Doc
 MODEL="models/bitnet_b1_58-large/ggml-model-tl2.gguf"
 LLAMA_CLI="./build_mingw/bin/llama-cli.exe"
 
-# Optimized settings based on performance testing:
-# - 4 threads (best performance on this CPU)
-# - Batch 512 (good balance)
-# - Context 1024 (saves memory)
-# - Temp 0.7 (coherent output)
+# ADJUSTABLE PARAMETERS:
+THREADS=4              # CPU threads (4 is optimal for this machine)
+BATCH=512              # Batch size
+CONTEXT=1024           # Context window
+TEMPERATURE=0.7        # 0.0=deterministic, 1.0=creative, 2.0=very random
+REPEAT_PENALTY=1.1     # Penalty for repeating tokens (1.0=none, 1.2=strong)
+TOP_P=0.95             # Nucleus sampling (0.9-0.95 recommended)
+TOP_K=40               # Top-K sampling (20-100 typical)
 
 if [ -z "$1" ]; then
     echo "Usage: $0 \"Your prompt here\" [num_tokens]"
@@ -29,17 +32,20 @@ TOKENS="${2:-100}"
 echo "Running optimized inference..."
 echo "Prompt: $PROMPT"
 echo "Tokens: $TOKENS"
+echo "Temperature: $TEMPERATURE | Repeat Penalty: $REPEAT_PENALTY"
 echo "---"
 
 $LLAMA_CLI \
     -m "$MODEL" \
     -p "$PROMPT" \
     -n "$TOKENS" \
-    -t 4 \
-    -b 512 \
-    -c 1024 \
-    --temp 0.7 \
-    --repeat_penalty 1.1
+    -t "$THREADS" \
+    -b "$BATCH" \
+    -c "$CONTEXT" \
+    --temp "$TEMPERATURE" \
+    --repeat_penalty "$REPEAT_PENALTY" \
+    --top_p "$TOP_P" \
+    --top_k "$TOP_K"
 
 echo ""
 echo "---"
