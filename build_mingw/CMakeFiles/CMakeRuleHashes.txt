@@ -1,0 +1,18 @@
+# Hashes of file build rules.
+181412a729a41ae37f0b6d602e3978aa 3rdparty/llama.cpp/examples/server/colorthemes.css.hpp
+448bc6e0268be2e3a258b4d296079e14 3rdparty/llama.cpp/examples/server/completion.js.hpp
+aace8cc1807dd2f1c6d27eee0bed4639 3rdparty/llama.cpp/examples/server/index-new.html.hpp
+255e87e16b60b8e088a7e0efb97afe7c 3rdparty/llama.cpp/examples/server/index.html.hpp
+020153aaf4d43047a9189c77287cb70b 3rdparty/llama.cpp/examples/server/index.js.hpp
+c650281dba7a7b2a9badb38017648b92 3rdparty/llama.cpp/examples/server/json-schema-to-grammar.mjs.hpp
+a81aeb7b7b8ddbd2337d04412ca0a054 3rdparty/llama.cpp/examples/server/loading.html.hpp
+a8cb9801cabb26d90fe7f2d7181b3451 3rdparty/llama.cpp/examples/server/prompt-formats.js.hpp
+48c8ff8fef133a396f0791a9d040ca04 3rdparty/llama.cpp/examples/server/style.css.hpp
+d12467a2a825d750435a1c8ba36fc3cc 3rdparty/llama.cpp/examples/server/system-prompts.js.hpp
+baad8002c07ea025d0e14703ff799485 3rdparty/llama.cpp/examples/server/theme-beeninorder.css.hpp
+915f74423c0f417e3b8fc6425a18bd12 3rdparty/llama.cpp/examples/server/theme-ketivah.css.hpp
+d68c8f197dfe829b92c02a5b04dcc3a3 3rdparty/llama.cpp/examples/server/theme-mangotango.css.hpp
+4cc5e441aa8d6517660cff256d4b2076 3rdparty/llama.cpp/examples/server/theme-playground.css.hpp
+f16dc5134abfe7a577a4f606370b030f 3rdparty/llama.cpp/examples/server/theme-polarnight.css.hpp
+24d7f4338032e3ce68a5804317a683f5 3rdparty/llama.cpp/examples/server/theme-snowstorm.css.hpp
+25c870e6383614526184c4a39528306a C:/Users/VHAWRJDRESCF/OneDrive - Department of Veterans Affairs/Documents/GitHub/VAbitnet/3rdparty/llama.cpp/common/build-info.cpp
