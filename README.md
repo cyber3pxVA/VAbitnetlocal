@@ -53,6 +53,27 @@ To make this production-ready, you would need:
 4. Web interface or API layer
 5. Proper evaluation and testing framework
 
+### Understanding the TL2 Model Format
+
+The included model uses **TL2 quantization** (`ggml-model-tl2.gguf`, 328 MB):
+
+**What TL2 means:**
+- BitNet-specific packing preset for GGUF conversions
+- Applies tighter codebook/indexing than i2_s for internal ternary layers
+- Quantizes edge layers (embeddings, output head) more aggressively
+- Result: 328 MB instead of ~1.2 GB (i2_s format)
+
+**Why it's so small:**
+- **Tied embeddings**: Token input and output matrices share the same weights (eliminates duplication)
+- **Aggressive quantization**: Largest tensors (lm_head, embeddings) use lower precision
+- **Optimized packing**: TL2 preset trades some quality for extreme size reduction
+
+**Trade-offs:**
+- ✅ **Pros**: Tiny size (328 MB), fast loading, works on any laptop
+- ❌ **Cons**: Lower quality than i2_s (~1.2 GB) or q6/q8 variants (~500-800 MB)
+
+**For better quality**: Consider using an i2_s build or TL2 variant with higher precision embeddings/output. The size-quality trade-off is configurable during GGUF conversion with `-q tl2` or `-q i2_s` flags.
+
 ---
 
 # Original BitNet.cpp Documentation
