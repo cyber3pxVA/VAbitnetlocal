@@ -1,3 +1,66 @@
+# VABitNet - Proof of Concept for VA Workstation
+
+> **⚠️ PROOF OF CONCEPT**: This is a demonstration deployment of BitNet 1.58-bit LLM running on a VA workstation without admin rights. The included model (728M parameters) is very small and has limited capabilities - it's meant to prove the infrastructure works, not for production use.
+
+## What This Is
+
+This repository shows that **AI language models can run locally on VA laptops** without:
+- Cloud services or internet access
+- Special permissions or admin rights
+- GPU or specialized hardware
+- Violating VA security policies
+
+**Current Status**: ✅ Working inference at ~7 tokens/sec on Intel i7-1265U (VA standard laptop)
+
+## The Model
+
+- **Size**: 728M parameters (very small by modern standards)
+- **Format**: 1.58-bit quantized (328 MB GGUF file)
+- **Capability**: Base model without instruction tuning - generates text but doesn't follow instructions well
+- **Purpose**: Infrastructure proof-of-concept, not production-ready
+
+**Important**: This model was chosen for its tiny size and CPU efficiency, not its accuracy or capabilities. It demonstrates the deployment process and performance characteristics.
+
+## Quick Links
+
+- **Installation Guide**: [INSTALL_VA_WORKSTATION.md](./INSTALL_VA_WORKSTATION.md) - Step-by-step setup for VA laptops
+- **Original BitNet Project**: See below for upstream documentation
+- **Development Log**: [DEVLOG.md](./DEVLOG.md) - Build history and lessons learned
+- **Performance Testing**: [test_performance.sh](./test_performance.sh) - Thread optimization results
+
+## What Works
+
+✅ Compiles and runs on VA workstation (no admin needed)  
+✅ Uses portable MinGW compiler (included in repo)  
+✅ Model files distributed via Git LFS  
+✅ Optimized for 4-thread performance (~7 tok/s)  
+✅ Memory efficient (144 MB KV cache)  
+✅ All scripts use relative paths (no system modification)
+
+## What Doesn't Work Yet
+
+❌ Model quality is poor (base model, needs fine-tuning)  
+❌ No instruction following (can't answer questions properly)  
+❌ Generates plausible-sounding but often incorrect text  
+❌ No chat interface (command-line only)
+
+## Next Steps for Production
+
+To make this production-ready, you would need:
+1. A larger, instruction-tuned model (3B-7B parameters)
+2. Fine-tuning on VA-specific data
+3. RAG (Retrieval Augmented Generation) for accuracy
+4. Web interface or API layer
+5. Proper evaluation and testing framework
+
+---
+
+# Original BitNet.cpp Documentation
+
+> The content below is from the [upstream BitNet repository](https://github.com/microsoft/BitNet)
+
+---
+
 # bitnet.cpp
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ![version](https://img.shields.io/badge/version-1.0-blue)
