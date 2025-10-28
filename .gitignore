@@ -2,7 +2,7 @@
 
 *.a
 *.bat
-*.bin
+# *.bin - REMOVED SO MODEL FILES ARE INCLUDED
 *.dll
 *.dot
 *.etag
@@ -10,7 +10,7 @@
 *.gcda
 *.gcno
 *.gcov
-*.gguf
+# *.gguf - REMOVED SO MODEL FILES ARE INCLUDED
 *.gguf.json
 *.lastModified
 *.log
@@ -33,7 +33,7 @@
 nppBackup
 
 # Models
-models/*
+# models/* - REMOVED SO MODELS ARE INCLUDED IN REPO
 gpu/checkpoints/*
 
 # Python
