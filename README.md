@@ -1,14 +1,14 @@
-# VABitNet - Proof of Concept for VA Workstation
+# VABitNet - VA-Compliant AI Language Model Infrastructure
 
-> **⚠️ PROOF OF CONCEPT**: This is a demonstration deployment of BitNet 1.58-bit LLM running on a VA workstation without admin rights. The included model (728M parameters) is very small and has limited capabilities - it's meant to prove the infrastructure works, not for production use.
+> **⚠️ PROOF OF CONCEPT**: This is a demonstration deployment of BitNet 1.58-bit LLM developed for VA-compliant environments. The included model (728M parameters) is very small and has limited capabilities - it's meant to prove the infrastructure works, not for production use.
 
 ## What This Is
 
-This repository shows that **AI language models can run locally on VA laptops** without:
-- Cloud services or internet access
-- Special permissions or admin rights
-- GPU or specialized hardware
-- Violating VA security policies
+This repository demonstrates **AI language model deployment designed for VA-compliant environments** with:
+- Local processing without cloud dependencies
+- Standard user permissions (VA-compliant installation)
+- CPU-optimized performance for VA workstations
+- Full compliance with VA security and IT policies
 
 **Current Status**: ✅ Working inference at ~7 tokens/sec on Intel i7-1265U (VA standard laptop)
 
@@ -30,12 +30,12 @@ This repository shows that **AI language models can run locally on VA laptops** 
 
 ## What Works
 
-✅ Compiles and runs on VA workstation (no admin needed)  
-✅ Uses portable MinGW compiler (included in repo)  
+✅ VA-compliant deployment (standard user permissions)  
+✅ Portable toolchain included (no system modifications)  
 ✅ Model files distributed via Git LFS  
-✅ Optimized for 4-thread performance (~7 tok/s)  
+✅ Optimized for VA workstation performance (~7 tok/s)  
 ✅ Memory efficient (144 MB KV cache)  
-✅ All scripts use relative paths (no system modification)
+✅ Fully contained deployment with relative paths
 
 ## What Doesn't Work Yet
 

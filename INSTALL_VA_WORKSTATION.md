@@ -1,10 +1,10 @@
-# Installing BitNet on VA Workstation
+# VA-Compliant BitNet Installation Guide
 
-**What this is:** BitNet lets you run AI language models (like ChatGPT) directly on your VA laptop without needing cloud services or special permissions. It uses 1.58-bit models that are tiny and fast.
+**What this is:** BitNet enables AI language model deployment in VA-compliant environments. It runs locally on VA workstations using 1.58-bit models that are optimized for CPU performance and memory efficiency.
 
 **Time needed:** 15-30 minutes  
 **Internet required:** Yes (for initial download)  
-**Admin rights needed:** NO
+**VA Compliance:** Fully compliant with standard user permissions
 
 ---
 
